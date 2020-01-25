@@ -6,6 +6,7 @@ import Display from "./components/Display";
 function App() {
   const [Strike, setStrike] = useState(0);
   const [Ball, setBall] = useState(0);
+  const [Foul,setFoul]=useState(0);
 
   const addStrikes = () => {
     if (Strike >= 3) {
@@ -30,8 +31,18 @@ function App() {
      setStrike(0)
      setBall(0)
    };
-
+ 
+   const addfoul =()=>{
+     if (Strike===0){
+       setStrike(1)
+       setFoul(1)
+     } else if (Strike===1){
+       setStrike(2);
+       setFoul(Foul+1)
+     }
+   }
    
+  
 
    
 
@@ -40,9 +51,12 @@ function App() {
       <header className="header">
         <h1> Baseball Score Tracker</h1>
       </header>
-      <Dashboard addStrikes={addStrikes} setStrike={setStrike}
+      <Dashboard addStrikes={addStrikes} 
+      setStrike={setStrike}
       addBalls={addBalls}
-      setBall={setBall} />
+      setBall={setBall}
+      addHit={addHit}
+      addFoul={addfoul} />
       <Display 
       Strike={Strike}
        Ball={Ball} />

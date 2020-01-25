@@ -11,6 +11,9 @@ const Display =({Strike,Ball })=>{
                 <h2> Balls</h2>
                 <h3>{Ball}</h3>
             </div>
+            <div>
+                
+            </div>
         </div>
     )
 }
